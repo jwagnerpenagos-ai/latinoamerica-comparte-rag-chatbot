@@ -1,0 +1,33 @@
+# Entornos locales
+.venv/
+venv/
+env/
+
+# Variables de entorno / secretos
+.env
+.env.local
+.env.*.local
+
+# Cache de Python y pruebas
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Archivos generados por el pipeline RAG
+data/processed/*
+indexes/*
+!data/processed/.gitkeep
+!indexes/.gitkeep
+
+# Configuracion local de herramientas
+.agents/
+.codex/
+.streamlit/secrets.toml
+
+# Sistema / editor
+.DS_Store
+.vscode/
+.idea/

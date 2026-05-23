@@ -1,0 +1,151 @@
+FAQ PARA CHATBOT RAG - LATINOAMÉRICA COMPARTE
+
+Intención: saludo
+Pregunta: Hola
+Pregunta: Buenas
+Pregunta: Buenos días
+Pregunta: Buenas tardes
+Pregunta: Buenas noches
+Pregunta: Qué tal
+Pregunta: Hey
+Pregunta: Necesito ayuda
+Pregunta: Quiero información
+Respuesta recomendada: ¡Hola! Soy el asistente virtual de Latinoamérica Comparte. Puedo orientarte sobre Comparte Academia, Comparte Liderazgo, Comparte Talento, nuestros programas de emprendimiento y las formas de contacto. ¿Qué te gustaría saber?
+
+Intención: despedida
+Pregunta: Chao
+Pregunta: Adiós
+Pregunta: Hasta luego
+Pregunta: Hasta pronto
+Pregunta: Nos vemos
+Pregunta: Gracias
+Pregunta: Muchas gracias
+Pregunta: Listo gracias
+Pregunta: Eso es todo
+Pregunta: Bye
+Respuesta recomendada: Con mucho gusto. Gracias por escribirnos. Cuando necesites más información sobre Latinoamérica Comparte, nuestros programas o formas de vincularte, estaré aquí para ayudarte.
+
+Intención: que_es_latinoamerica_comparte
+Pregunta: ¿Qué es Latinoamérica Comparte?
+Pregunta: ¿Qué es Colombia Comparte?
+Pregunta: Cuéntame sobre la organización
+Pregunta: ¿A qué se dedican?
+Pregunta: ¿Cuál es su propósito?
+Pregunta: Información general de la organización
+Pregunta: ¿De qué se trata Latinoamérica Comparte?
+Respuesta recomendada: Latinoamérica Comparte es la evolución del ecosistema que nació en Colombia como Colombia Comparte. La organización promueve el progreso humano y productivo dentro y fuera de las empresas, acompañando procesos de emprendimiento, bienestar, cultura organizacional, liderazgo y transformación humana. Su estructura actual se organiza en tres grandes líneas: Comparte Academia, Comparte Liderazgo y Comparte Talento.
+
+Intención: evolucion_de_marca
+Pregunta: ¿Colombia Comparte cambió de nombre?
+Pregunta: ¿Ahora son Latinoamérica Comparte?
+Pregunta: ¿Qué pasó con EDIFICA?
+Pregunta: ¿Por qué hablan de Latinoamérica Comparte?
+Pregunta: ¿Cuál es la nueva estructura de marca?
+Respuesta recomendada: La comunicación de la organización evolucionó. Antes estaba muy centrada en EDIFICA, EDIFICA DESKUBRE, EDIFICA ESTRUCTURA, NODUS y TOP SPEAKERS. Actualmente se comunica como un ecosistema más amplio: Latinoamérica Comparte, con tres líneas principales: Comparte Academia, Comparte Liderazgo y Comparte Talento. Esta estructura permite explicar mejor los programas y servicios de forma clara y escalable.
+
+Intención: lineas_principales
+Pregunta: ¿Cuáles son las líneas de Latinoamérica Comparte?
+Pregunta: ¿Qué líneas tienen?
+Pregunta: ¿Cómo está organizada la organización?
+Pregunta: ¿Qué es Comparte Academia Liderazgo y Talento?
+Respuesta recomendada: Latinoamérica Comparte se organiza en tres líneas principales. Comparte Academia reúne la formación y los programas de emprendimiento, como DESKUBRE y ESTRUCTURA. Comparte Liderazgo está enfocada en liderazgo, desarrollo humano, cultura organizacional y transformación para empresas y líderes. Comparte Talento reúne conferencias, speakers, artistas, experiencias y eventos corporativos; antes era conocida como TOP SPEAKERS.
+
+Intención: comparte_academia
+Pregunta: ¿Qué es Comparte Academia?
+Pregunta: ¿Qué programas de emprendimiento tienen?
+Pregunta: ¿Dónde quedan DESKUBRE y ESTRUCTURA?
+Pregunta: ¿Tienen formación para emprendedores?
+Pregunta: Quiero emprender, ¿me ayudan?
+Respuesta recomendada: Comparte Academia es la línea de formación y emprendimiento de Latinoamérica Comparte. Allí se encuentran programas como DESKUBRE, orientado a quienes están iniciando o definiendo su idea, y ESTRUCTURA, dirigido a personas que ya tienen una idea de negocio o un emprendimiento en marcha y quieren fortalecerlo de forma más organizada, estratégica y sostenible.
+
+Intención: programa_deskubre
+Pregunta: ¿Qué es DESKUBRE?
+Pregunta: ¿Qué es DESCUBRE?
+Pregunta: ¿Para quién es DESKUBRE?
+Pregunta: Estoy empezando a emprender, ¿qué programa me sirve?
+Pregunta: Tengo una idea pero no sé cómo empezar
+Respuesta recomendada: DESKUBRE es un programa inicial de emprendimiento enfocado en ayudar a las personas a descubrir, despertar y estructurar sus capacidades emprendedoras. Está dirigido a quienes desean emprender, tienen una idea en construcción o necesitan claridad para definir el camino de su proyecto. Su enfoque incluye exploración, mentalidad emprendedora, validación inicial y orientación. Tiene una duración aproximada de 1 mes.
+
+Intención: programa_estructura
+Pregunta: ¿Qué es ESTRUCTURA?
+Pregunta: ¿Para quién es ESTRUCTURA?
+Pregunta: Ya tengo un emprendimiento, ¿qué programa me sirve?
+Pregunta: ¿Cómo fortalecen un negocio?
+Pregunta: ¿Qué se aprende en ESTRUCTURA?
+Respuesta recomendada: ESTRUCTURA es un programa de emprendimiento más avanzado, diseñado para personas que ya tienen una idea de negocio o un emprendimiento en marcha y desean fortalecerlo de manera organizada, estratégica y sostenible. Trabaja estructuración empresarial, modelo de negocio, finanzas, marketing, ventas, liderazgo, trabajo de campo y acompañamiento personalizado. Tiene una duración aproximada de 12 meses, incluyendo formación, trabajo de campo, etapa de vuelo y acompañamiento.
+
+Intención: comparte_liderazgo
+Pregunta: ¿Qué es Comparte Liderazgo?
+Pregunta: ¿Tienen programas de liderazgo?
+Pregunta: ¿Qué pasó con NODUS?
+Pregunta: Necesito formar líderes en mi empresa
+Pregunta: ¿Qué es liderazgo con mentalidad emprendedora?
+Respuesta recomendada: Comparte Liderazgo es la línea enfocada en liderazgo, desarrollo humano, cultura organizacional y transformación para empresas y líderes. Su propósito es llevar el pensamiento emprendedor a los líderes de las empresas, ayudándoles a tomar decisiones con criterio, leer su entorno, alinear equipos y construir resultados sostenibles.
+
+Intención: comparte_talento
+Pregunta: ¿Qué es Comparte Talento?
+Pregunta: ¿Qué pasó con TOP SPEAKERS?
+Pregunta: Necesito un conferencista para un evento
+Pregunta: ¿Manejan speakers para empresas?
+Pregunta: Quiero organizar una charla en mi empresa
+Pregunta: ¿Tienen artistas o experiencias corporativas?
+Respuesta recomendada: Comparte Talento es la línea de conferencias, speakers, artistas, experiencias y eventos corporativos de Latinoamérica Comparte. Antes era conocida como TOP SPEAKERS. Su objetivo es llevar a las empresas experiencias que fortalezcan el liderazgo consciente, inspiren propósito, mejoren el clima organizacional, conecten emocionalmente a los equipos y movilicen la cultura.
+
+Intención: pobreza_oculta
+Pregunta: ¿Qué es pobreza oculta?
+Pregunta: ¿A quiénes ayudan?
+Pregunta: ¿Qué son familias vergonzantes?
+Pregunta: ¿Qué tipo de familias acompañan?
+Pregunta: ¿Por qué hablan de reconstrucción económica?
+Respuesta recomendada: La pobreza oculta o pobreza vergonzante se refiere a familias que aparentemente tenían estabilidad, pero que después de una quiebra, despido, enfermedad u otra crisis pierden su equilibrio económico y emocional. Muchas veces no aparecen en estadísticas tradicionales de pobreza y sienten resistencia a pedir ayuda por estigma u orgullo. Latinoamérica Comparte acompaña estos procesos buscando reactivar la productividad y reconstruir el futuro desde el emprendimiento y el acompañamiento humano.
+
+Intención: publicos_objetivo
+Pregunta: ¿A quién va dirigido?
+Pregunta: ¿Quiénes pueden participar?
+Pregunta: ¿Trabajan con empresas?
+Pregunta: ¿Acompañan personas individuales?
+Pregunta: ¿Con quién trabajan?
+Pregunta: ¿Puedo participar siendo emprendedor?
+Respuesta recomendada: Latinoamérica Comparte acompaña principalmente a tres públicos: personas y familias en procesos de reconstrucción económica, emprendedores que quieren crear o fortalecer su negocio, y empresas comprometidas con el bienestar de su gente que buscan fortalecer cultura, liderazgo y productividad humana.
+
+Intención: historia
+Pregunta: ¿Cómo nació Colombia Comparte?
+Pregunta: ¿Cuál es su historia?
+Pregunta: ¿Quiénes son los fundadores?
+Pregunta: ¿Quién creó Colombia Comparte?
+Pregunta: Cuéntame su historia
+Pregunta: ¿Cómo empezó la organización?
+Respuesta recomendada: La organización nació de una historia real de pérdida, fe y reconstrucción. Sus cofundadores, Carolina Ruiz Herrera y Eduardo Del Castillo, vivieron en carne propia lo que significa perderlo todo y volver a levantarse. A partir de esa experiencia entendieron que cuando una persona vuelve a sentirse productiva, vuelve a vivir, y crearon la organización para acompañar a quienes enfrentan procesos de reconstrucción económica y personal.
+
+Intención: impacto_resultados
+Pregunta: ¿Qué resultados han tenido?
+Pregunta: ¿Qué impacto han generado?
+Pregunta: ¿A cuántas personas han ayudado?
+Pregunta: ¿Cuántos años llevan?
+Pregunta: ¿Con cuántas empresas trabajan?
+Pregunta: ¿Cuántos mentores tienen?
+Pregunta: Cifras de impacto
+Respuesta recomendada: La organización ha acompañado durante cerca de 10 años procesos de reconstrucción productiva, emprendimiento y transformación humana. En los materiales base se mencionan más de 1.200 personas y familias acompañadas, más de 70 empresas comprometidas con su gente y más de 65 mentores y voluntarios vinculados al propósito de la organización.
+
+Intención: formas_colaboracion
+Pregunta: ¿Cómo puedo colaborar?
+Pregunta: ¿Aceptan donaciones?
+Pregunta: ¿Puedo ser voluntario?
+Pregunta: ¿Tienen alianzas corporativas?
+Pregunta: ¿Cómo se puede apoyar a la organización?
+Respuesta recomendada: Existen varias formas de colaboración: donaciones para apoyar procesos de estabilización y reconstrucción, voluntariado pro-bono mediante mentorías, coaching o transferencia de conocimiento, y alianzas corporativas para programas de impacto social, bienestar, cultura, liderazgo y productividad humana.
+
+Intención: contacto
+Pregunta: ¿Cómo los contacto?
+Pregunta: ¿Cuál es su correo?
+Pregunta: ¿Tienen teléfono?
+Pregunta: ¿Dónde puedo escribirles?
+Pregunta: Quiero hablar con alguien
+Pregunta: Información de contacto
+Pregunta: ¿Cuál es su página web?
+Pregunta: Necesito hablar con un asesor
+Pregunta: Contacto
+Pregunta: Email
+Respuesta recomendada: Puedes contactar a la organización a través del sitio web colombiacomparte.com. En los materiales base también aparece el correo Eduardodelcastillo@colombiacomparte.com y el canal de YouTube youtube.com/@colombiacomparte, donde se pueden conocer historias y casos reales.
+
+Regla de fallback: Si la información recuperada no alcanza, responder: No tengo suficiente información para responder esa pregunta con los datos disponibles.

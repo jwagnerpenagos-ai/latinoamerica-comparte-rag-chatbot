@@ -1,0 +1,45 @@
+IMPACTO, COLABORACIÓN Y CONTACTO
+
+IMPACTO
+
+Latinoamérica Comparte, desde su origen como Colombia Comparte, ha acompañado procesos de reconstrucción productiva, emprendimiento y transformación humana durante cerca de 10 años.
+
+En los materiales base de la organización se mencionan cifras como:
+- Más de 1.200 personas y familias acompañadas en su reconstrucción productiva.
+- Más de 70 empresas comprometidas con su gente.
+- Más de 65 mentores y voluntarios vinculados al propósito de la organización.
+- 10 años transformando vidas y culturas.
+
+La organización busca transformar vidas desde el ser, el propósito, la productividad y el acompañamiento humano.
+
+ACCIONES Y PROYECTOS RELEVANTES
+
+Entre las acciones recientes mencionadas en los materiales base se encuentran:
+- Expansión a Latinoamérica.
+- Ecuasal en Ecuador: acompañamiento en procesos de transición familiar a través del emprendimiento.
+- Colegios como J. J. Casas: formación en mentalidad emprendedora en jóvenes.
+- Empresas aliadas: talleres, conferencias y procesos de bienestar y liderazgo.
+
+FORMAS DE COLABORACIÓN
+
+Las personas y empresas pueden colaborar con Latinoamérica Comparte de varias maneras:
+- Donaciones para apoyar procesos de estabilización y reconstrucción.
+- Voluntariado pro-bono a través de mentorías, coaching o transferencia de conocimiento.
+- Alianzas corporativas para programas de impacto social, bienestar, cultura, liderazgo y productividad humana.
+- Participación como mentores, coaches, conferencistas o aliados.
+- Vinculación de empresas interesadas en fortalecer a sus colaboradores y familias.
+
+CONTACTO
+
+Los materiales base mencionan los siguientes canales de contacto:
+- Sitio web: colombiacomparte.com
+- Correo: Eduardodelcastillo@colombiacomparte.com
+- Canal de YouTube: youtube.com/@colombiacomparte
+- Teléfono: (+57) 316 467 3087
+
+También aparece el correo comunicaciones@colombiacomparte.com y el teléfono (+57) 321 230 2138 en materiales de base anteriores. Para datos como precios, fechas, sedes o próximas cohortes, el chatbot debe recomendar confirmar directamente con la organización.
+
+FALLBACK
+
+Si el contexto no tiene información suficiente para responder una pregunta, el chatbot debe decir:
+No tengo suficiente información para responder esa pregunta con los datos disponibles.
