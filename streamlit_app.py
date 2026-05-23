@@ -1,24 +1,16 @@
 from pathlib import Path
 import sys
-from types import SimpleNamespace
 
 import streamlit as st
 from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 load_dotenv(PROJECT_ROOT / ".env")
 
 from rag.embeddings import DEFAULT_EMBEDDING_MODEL
-
-from scripts.chatbot_groq import (
-    retrieve_context,
-    build_context,
-    generate_with_groq,
-    FALLBACK_ANSWER,
-)
+from rag.pipeline_groq import GroqRagChatbot
 
 
 TOP_K = 6
@@ -225,7 +217,7 @@ def _render_landing() -> None:
         """
         <div class="trust-row">
             <div class="trust-item"><strong>RAG</strong>Busca primero en documentos reales.</div>
-            <div class="trust-item"><strong>FAISS</strong>Recupera contexto por similitud.</div>
+            <div class="trust-item"><strong>FAISS + Keyword</strong>Recupera contexto híbrido.</div>
             <div class="trust-item"><strong>Groq + Llama</strong>Redacta respuestas naturales.</div>
         </div>
         """,
@@ -269,29 +261,18 @@ def _render_chat() -> None:
 
 
 def ask_with_groq(question: str) -> str:
-    args = SimpleNamespace(
-        chunks_path=PROJECT_ROOT / "data/processed/chunks.jsonl",
-        index_path=PROJECT_ROOT / "indexes/faiss.index",
-        embedding_model=DEFAULT_EMBEDDING_MODEL,
+    chatbot = load_chatbot()
+
+    response = chatbot.ask(
+        query=question,
         top_k=TOP_K,
         min_score=MIN_SCORE,
         max_context_chars=MAX_CONTEXT_CHARS,
-        download_embedding_model=False,
-    )
-
-    results = retrieve_context(question, args)
-
-    if not results:
-        return FALLBACK_ANSWER
-
-    context = build_context(results, MAX_CONTEXT_CHARS)
-
-    return generate_with_groq(
-        query=question,
-        context=context,
         max_tokens=MAX_TOKENS,
         temperature=TEMPERATURE,
     )
+
+    return response["answer"]
 
 
 def _answer_question(question: str) -> None:
@@ -323,6 +304,16 @@ def _answer_question(question: str) -> None:
             "role": "assistant",
             "content": answer,
         }
+    )
+
+
+@st.cache_resource(show_spinner="Preparando el asistente de Latinoamérica Comparte...")
+def load_chatbot() -> GroqRagChatbot:
+    return GroqRagChatbot(
+        chunks_path=PROJECT_ROOT / "data/processed/chunks.jsonl",
+        index_path=PROJECT_ROOT / "indexes/faiss.index",
+        embedding_model_name=DEFAULT_EMBEDDING_MODEL,
+        local_files_only=True,
     )
 
 
