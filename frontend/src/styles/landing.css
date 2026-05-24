@@ -1,0 +1,251 @@
+.navbar {
+  height: 88px;
+  padding: 0 4rem;
+  background: #8e198c;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-symbol {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+
+.dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+}
+
+.dot.red {
+  left: 8px;
+  top: 7px;
+  background: #e84d6e;
+}
+
+.dot.orange {
+  right: 8px;
+  top: 7px;
+  background: #f39a5b;
+}
+
+.dot.purple {
+  left: 8px;
+  bottom: 7px;
+  background: #8e198c;
+}
+
+.dot.blue {
+  right: 8px;
+  bottom: 7px;
+  background: #2d8cff;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.brand-subtitle {
+  margin: 0.1rem 0 0;
+  font-size: 0.72rem;
+  opacity: 0.82;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.55rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.92;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.hero {
+  min-height: calc(100vh - 88px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(142, 25, 140, 0.95),
+      rgba(107, 55, 172, 0.84),
+      rgba(45, 140, 255, 0.68)
+    ),
+    radial-gradient(circle at 18% 22%, rgba(232, 77, 110, 0.42), transparent 19rem),
+    radial-gradient(circle at 82% 70%, rgba(41, 182, 216, 0.34), transparent 22rem),
+    #7b1685;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 54px 54px;
+  opacity: 0.13;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1050px;
+  padding: 4rem 2rem 6rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.52rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: white;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  margin: 0;
+  color: white;
+  font-size: clamp(2.9rem, 5.7vw, 6rem);
+  line-height: 0.96;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin: 0.65rem 0 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1.45rem, 2.7vw, 2.55rem);
+  line-height: 1.05;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+.country-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+  margin: 2.25rem 0 1.2rem;
+}
+
+.country-bubble {
+  width: 108px;
+  height: 108px;
+  border-radius: 999px;
+  background: white;
+  color: #211124;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 24px 55px rgba(32, 12, 45, 0.3);
+}
+
+.country-bubble.main {
+  width: 150px;
+  height: 150px;
+  transform: translateY(-6px);
+}
+
+.country-bubble strong {
+  font-size: 1.08rem;
+  font-weight: 950;
+  background: linear-gradient(135deg, #8e198c, #e84d6e, #2d8cff);
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.country-bubble span {
+  margin-top: 0.3rem;
+  color: #4b4453;
+  font-size: 0.65rem;
+  font-weight: 900;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.hero p {
+  max-width: 800px;
+  margin: 1.7rem auto 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    height: auto;
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem 6rem;
+  }
+
+  .country-bubble {
+    width: 82px;
+    height: 82px;
+  }
+
+  .country-bubble.main {
+    width: 112px;
+    height: 112px;
+  }
+}
