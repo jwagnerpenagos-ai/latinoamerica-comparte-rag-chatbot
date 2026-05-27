@@ -6,7 +6,11 @@ function ChatLauncher({ onOpen }) {
       aria-label="Abrir asistente"
       title="Abrir asistente"
     >
-      <img src="/Chatbot.svg" alt="Asistente Latinoamérica Comparte" />
+     <img
+      className="chat-launcher-image"
+      src="/colibri-chatbot.png"
+      alt="Asistente Latinoamérica Comparte"
+/>
     </button>
   );
 }

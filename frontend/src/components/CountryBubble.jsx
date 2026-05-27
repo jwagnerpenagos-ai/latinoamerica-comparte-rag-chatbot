@@ -1,12 +1,7 @@
-function CountryBubble({ code, country, main = false }) {
+function CountryBubble({ image, country, main = false }) {
   return (
     <div className={`country-bubble ${main ? "main" : ""}`}>
-      <strong>{code}</strong>
-      <span>
-        {country}
-        <br />
-        Comparte
-      </span>
+      <img src={image} alt={`${country} Comparte`} />
     </div>
   );
 }

@@ -16,11 +16,11 @@ function Hero() {
         <h2>hoy inspira a toda Latinoamérica</h2>
 
         <div className="country-row">
-          <CountryBubble code="CO" country="Colombia" />
-          <CountryBubble code="EC" country="Ecuador" />
-          <CountryBubble code="LATAM" country="Latinoamérica" main />
-          <CountryBubble code="CL" country="Chile" />
-          <CountryBubble code="AR" country="Argentina" />
+          <CountryBubble image="/Colombia Co N.png" country="Colombia" />
+          <CountryBubble image="/Ecuador Co N.png" country="Ecuador" />
+          <CountryBubble image="/Latinoamérica Co N.png" country="Latinoamérica" main />
+          <CountryBubble image="/Chile Co N.png" country="Chile" />
+          <CountryBubble image="/Argentina Co N.png" country="Argentina" />
         </div>
 
         <p>

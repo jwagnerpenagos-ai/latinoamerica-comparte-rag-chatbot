@@ -10,12 +10,11 @@ function Navbar() {
         rel="noreferrer"
         aria-label="Ir a Latinoamérica Comparte"
       >
-        <div className="logo-symbol">
-          <span className="dot red"></span>
-          <span className="dot orange"></span>
-          <span className="dot purple"></span>
-          <span className="dot blue"></span>
-        </div>
+        <img
+          className="brand-logo"
+          src="/Logo Blanco.png"
+          alt="Latinoamérica Comparte"
+        />
 
         <div>
           <p className="brand-title">Latinoamérica Comparte</p>

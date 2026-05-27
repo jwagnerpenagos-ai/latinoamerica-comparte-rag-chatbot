@@ -31,10 +31,10 @@ class GroqRagChatbot:
     def ask(
         self,
         query: str,
-        top_k: int = 6,
-        min_score: float = 0.20,
-        max_context_chars: int = 4500,
-        max_tokens: int = 300,
+        top_k: int = 4,
+        min_score: float = 0.25,
+        max_context_chars: int = 3200,
+        max_tokens: int = 200,
         temperature: float = 0.0,
     ) -> dict[str, Any]:
         results = self.retriever.retrieve(

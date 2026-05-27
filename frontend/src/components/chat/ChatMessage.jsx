@@ -7,7 +7,7 @@ function ChatMessage({ message }) {
     <div className={`message-row ${isUser ? "user" : "assistant"}`}>
       {!isUser && (
         <div className="message-icon bot-image-icon">
-          <img src="/Chatbot.svg" alt="Asistente" />
+          <img src="/colibri-chatbot.png" alt="Asistente" />
         </div>
       )}
 

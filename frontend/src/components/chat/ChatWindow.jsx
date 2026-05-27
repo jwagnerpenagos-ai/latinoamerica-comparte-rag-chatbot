@@ -34,7 +34,7 @@ function ChatWindow({
       <header className="chat-header">
         <div className="chat-title-box">
           <div className="chat-avatar image-avatar">
-            <img src="/Chatbot.svg" alt="Asistente" />
+            <img src="/colibri-chatbot.png" alt="Asistente" />
           </div>
 
           <div className="chat-title-text">
@@ -70,7 +70,7 @@ function ChatWindow({
         {messages.length === 0 && !isLoading && (
           <div className="empty-chat">
             <div className="empty-icon">
-              <img src="/Chatbot.svg" alt="Asistente" />
+              <img src="/colibri-chatbot.png" alt="Asistente" />
             </div>
 
             <h4>Haz tu primera pregunta</h4>
@@ -88,7 +88,7 @@ function ChatWindow({
         {isLoading && (
           <div className="message-row assistant">
             <div className="message-icon bot-image-icon">
-              <img src="/Chatbot.svg" alt="Asistente" />
+              <img src="/colibri-chatbot.png" alt="Asistente" />
             </div>
 
             <div className="message-bubble typing-bubble">
