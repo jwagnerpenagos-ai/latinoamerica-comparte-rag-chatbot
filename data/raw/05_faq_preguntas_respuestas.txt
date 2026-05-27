@@ -1,30 +1,5 @@
 FAQ PARA CHATBOT RAG - LATINOAMÉRICA COMPARTE
 
-Intención: saludo
-Pregunta: Hola
-Pregunta: Buenas
-Pregunta: Buenos días
-Pregunta: Buenas tardes
-Pregunta: Buenas noches
-Pregunta: Qué tal
-Pregunta: Hey
-Pregunta: Necesito ayuda
-Pregunta: Quiero información
-Respuesta recomendada: ¡Hola! Soy el asistente virtual de Latinoamérica Comparte. Puedo orientarte sobre Comparte Academia, Comparte Liderazgo, Comparte Talento, nuestros programas de emprendimiento y las formas de contacto. ¿Qué te gustaría saber?
-
-Intención: despedida
-Pregunta: Chao
-Pregunta: Adiós
-Pregunta: Hasta luego
-Pregunta: Hasta pronto
-Pregunta: Nos vemos
-Pregunta: Gracias
-Pregunta: Muchas gracias
-Pregunta: Listo gracias
-Pregunta: Eso es todo
-Pregunta: Bye
-Respuesta recomendada: Con mucho gusto. Gracias por escribirnos. Cuando necesites más información sobre Latinoamérica Comparte, nuestros programas o formas de vincularte, estaré aquí para ayudarte.
-
 Intención: que_es_latinoamerica_comparte
 Pregunta: ¿Qué es Latinoamérica Comparte?
 Pregunta: ¿Qué es Colombia Comparte?
@@ -33,7 +8,20 @@ Pregunta: ¿A qué se dedican?
 Pregunta: ¿Cuál es su propósito?
 Pregunta: Información general de la organización
 Pregunta: ¿De qué se trata Latinoamérica Comparte?
-Respuesta recomendada: Latinoamérica Comparte es la evolución del ecosistema que nació en Colombia como Colombia Comparte. La organización promueve el progreso humano y productivo dentro y fuera de las empresas, acompañando procesos de emprendimiento, bienestar, cultura organizacional, liderazgo y transformación humana. Su estructura actual se organiza en tres grandes líneas: Comparte Academia, Comparte Liderazgo y Comparte Talento.
+Respuesta recomendada: Latinoamérica Comparte es una red que une personas, empresas y comunidades para impulsar el progreso humano y productivo en la región. La organización acompaña procesos de emprendimiento, bienestar empresarial, cultura organizacional, liderazgo humano, productividad sostenible y transformación personal. Su trabajo se organiza en tres grandes líneas: Comparte Academia, Comparte Liderazgo y Comparte Talento.
+
+Intención: presencia_regional
+Pregunta: ¿En qué países están?
+Pregunta: ¿Dónde están presentes?
+Pregunta: ¿En qué países tiene presencia Latinoamérica Comparte?
+Pregunta: ¿Latinoamérica Comparte está en otros países?
+Pregunta: ¿Están en Colombia?
+Pregunta: ¿Están en Ecuador?
+Pregunta: ¿Están en Chile?
+Pregunta: ¿Están en Argentina?
+Pregunta: ¿Tienen presencia en Latinoamérica?
+Pregunta: ¿Qué países hacen parte de Latinoamérica Comparte?
+Respuesta recomendada: Latinoamérica Comparte nació en Colombia y actualmente proyecta su ecosistema hacia la región. Su presencia de marca incluye Colombia Comparte, Ecuador Comparte, Chile Comparte y Argentina Comparte, bajo una visión regional de Latinoamérica Comparte.
 
 Intención: evolucion_de_marca
 Pregunta: ¿Colombia Comparte cambió de nombre?
