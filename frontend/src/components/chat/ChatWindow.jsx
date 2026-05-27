@@ -1,12 +1,5 @@
 import { useEffect, useRef } from "react";
-import {
-  Send,
-  X,
-  Bot,
-  Loader2,
-  Maximize2,
-  Minimize2,
-} from "lucide-react";
+import { Send, X, Maximize2, Minimize2 } from "lucide-react";
 import ChatMessage from "./ChatMessage";
 
 function ChatWindow({
@@ -40,8 +33,8 @@ function ChatWindow({
     >
       <header className="chat-header">
         <div className="chat-title-box">
-          <div className="chat-avatar">
-            <Bot size={20} />
+          <div className="chat-avatar image-avatar">
+            <img src="/Chatbot.svg" alt="Asistente" />
           </div>
 
           <div className="chat-title-text">
@@ -76,7 +69,10 @@ function ChatWindow({
       <div className="messages">
         {messages.length === 0 && !isLoading && (
           <div className="empty-chat">
-            <div className="empty-icon">💬</div>
+            <div className="empty-icon">
+              <img src="/Chatbot.svg" alt="Asistente" />
+            </div>
+
             <h4>Haz tu primera pregunta</h4>
             <p>
               Pregunta por DESKUBRE, ESTRUCTURA, Comparte Academia, Liderazgo,
@@ -91,13 +87,14 @@ function ChatWindow({
 
         {isLoading && (
           <div className="message-row assistant">
-            <div className="message-icon">
-              <Bot size={16} />
+            <div className="message-icon bot-image-icon">
+              <img src="/Chatbot.svg" alt="Asistente" />
             </div>
 
-            <div className="message-bubble loading">
-              <Loader2 size={16} className="spin" />
-              Consultando la base de conocimiento...
+            <div className="message-bubble typing-bubble">
+              <span className="typing-dot"></span>
+              <span className="typing-dot"></span>
+              <span className="typing-dot"></span>
             </div>
           </div>
         )}

@@ -6,6 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 20;
 }
 
 .brand {
@@ -86,7 +88,9 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   opacity: 0.92;
-  transition: opacity 0.16s ease, transform 0.16s ease;
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
 }
 
 .nav-links a:hover {
@@ -102,26 +106,65 @@
   text-align: center;
   overflow: hidden;
   color: white;
+  isolation: isolate;
+
   background:
     linear-gradient(
       115deg,
-      rgba(142, 25, 140, 0.95),
-      rgba(107, 55, 172, 0.84),
-      rgba(45, 140, 255, 0.68)
+      rgba(72, 14, 96, 0.76) 0%,
+      rgba(132, 31, 154, 0.58) 46%,
+      rgba(37, 85, 185, 0.54) 100%
     ),
-    radial-gradient(circle at 18% 22%, rgba(232, 77, 110, 0.42), transparent 19rem),
-    radial-gradient(circle at 82% 70%, rgba(41, 182, 216, 0.34), transparent 22rem),
-    #7b1685;
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(255, 255, 255, 0.18),
+      transparent 21rem
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(232, 77, 110, 0.26),
+      transparent 24rem
+    ),
+    url("../../public/Fondo.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.08), transparent 22rem),
+    linear-gradient(
+      180deg,
+      rgba(20, 10, 35, 0.04),
+      rgba(20, 10, 35, 0.2)
+    );
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
+  background-size: 54px 54px;
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .hero-grid {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 54px 54px;
-  opacity: 0.13;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -145,6 +188,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
 }
 
 .hero h1 {
@@ -155,6 +199,8 @@
   font-weight: 950;
   letter-spacing: -0.08em;
   text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 18px 44px rgba(20, 10, 35, 0.22);
 }
 
 .hero h2 {
@@ -165,6 +211,8 @@
   font-weight: 850;
   text-transform: uppercase;
   letter-spacing: -0.04em;
+  text-wrap: balance;
+  text-shadow: 0 14px 34px rgba(20, 10, 35, 0.2);
 }
 
 .country-row {
@@ -180,14 +228,15 @@
   width: 108px;
   height: 108px;
   border-radius: 999px;
-  background: white;
+  background: rgba(255, 255, 255, 0.96);
   color: #211124;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow: 0 24px 55px rgba(32, 12, 45, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .country-bubble.main {
@@ -201,6 +250,7 @@
   font-weight: 950;
   background: linear-gradient(135deg, #8e198c, #e84d6e, #2d8cff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   line-height: 1;
 }
@@ -220,6 +270,7 @@
   color: rgba(255, 255, 255, 0.92);
   font-size: 1.08rem;
   line-height: 1.65;
+  text-shadow: 0 10px 28px rgba(20, 10, 35, 0.2);
 }
 
 @media (max-width: 900px) {
@@ -228,15 +279,30 @@
     padding: 1rem 1.25rem;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
 
   .nav-links {
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.9rem 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+  }
+
+  .hero {
+    min-height: calc(100vh - 132px);
+    background-position: center;
   }
 
   .hero-content {
     padding: 2rem 1rem 6rem;
+  }
+
+  .country-row {
+    gap: 0.75rem;
+    margin-top: 1.8rem;
   }
 
   .country-bubble {
@@ -247,5 +313,18 @@
   .country-bubble.main {
     width: 112px;
     height: 112px;
+  }
+
+  .country-bubble strong {
+    font-size: 0.92rem;
+  }
+
+  .country-bubble span {
+    font-size: 0.55rem;
+  }
+
+  .hero p {
+    font-size: 0.96rem;
+    line-height: 1.55;
   }
 }

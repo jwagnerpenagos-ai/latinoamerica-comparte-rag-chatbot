@@ -150,7 +150,10 @@ class HybridRetriever:
         return merged
 
 
-def build_context(results: list[dict[str, Any]], max_context_chars: int = 4500) -> str:
+def build_context(
+    results: list[dict[str, Any]],
+    max_context_chars: int = 4500,
+) -> str:
     blocks = []
     used_chars = 0
 
@@ -189,38 +192,92 @@ def calculate_keyword_score(
         if term in normalized_text:
             score += 1
 
+    if "idea_emprendimiento" in terms:
+        if "07_deskubre" in normalized_source:
+            score += 8
+        if "01_comparte_academia" in normalized_source:
+            score += 6
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 5
+
+    if "emprendimiento" in terms:
+        if "01_comparte_academia" in normalized_source:
+            score += 4
+        if "07_deskubre" in normalized_source:
+            score += 4
+        if "08_estructura" in normalized_source:
+            score += 3
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
+
     if "deskubre" in terms or "descubre" in terms:
         if "07_deskubre" in normalized_source:
-            score += 6
+            score += 8
         if "01_comparte_academia" in normalized_source:
-            score += 2
+            score += 3
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
 
     if "estructura" in terms:
         if "08_estructura" in normalized_source:
-            score += 6
+            score += 8
         if "01_comparte_academia" in normalized_source:
-            score += 2
+            score += 3
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
 
     if "comparte academia" in terms:
         if "01_comparte_academia" in normalized_source:
+            score += 6
+        if "07_deskubre" in normalized_source:
+            score += 3
+        if "08_estructura" in normalized_source:
+            score += 3
+        if "05_faq_preguntas_respuestas" in normalized_source:
             score += 4
         if "00_base_latinoamerica" in normalized_source:
             score += 2
 
     if "comparte liderazgo" in terms or "nodus" in terms or "liderazgo" in terms:
         if "02_comparte_liderazgo_talento" in normalized_source:
-            score += 4
+            score += 5
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
 
     if "comparte talento" in terms or "top speakers" in terms or "speakers" in terms:
         if "02_comparte_liderazgo_talento" in normalized_source:
-            score += 4
+            score += 5
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
 
-    if "pobreza oculta" in terms or "pobreza vergonzante" in terms:
+    if "pobreza_oculta" in terms or "pobreza vergonzante" in terms:
         if "03_publicos_pobreza_oculta_historia" in normalized_source:
-            score += 4
+            score += 5
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
 
-    if "impacto" in terms or "contacto" in terms or "colaboracion" in terms:
+    if "presencia_regional" in terms:
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 6
+        if "00_base_latinoamerica" in normalized_source:
+            score += 3
+
+    if "impacto" in terms:
         if "04_impacto_colaboracion_contacto" in normalized_source:
+            score += 5
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
+
+    if "contacto" in terms:
+        if "04_impacto_colaboracion_contacto" in normalized_source:
+            score += 5
+        if "05_faq_preguntas_respuestas" in normalized_source:
+            score += 3
+
+    if "colaboracion" in terms:
+        if "04_impacto_colaboracion_contacto" in normalized_source:
+            score += 6
+        if "05_faq_preguntas_respuestas" in normalized_source:
             score += 4
 
     return score
@@ -251,23 +308,158 @@ def extract_query_terms(query: str) -> list[str]:
         if term in normalized_query:
             terms.append(term)
 
-    if any(word in normalized_query for word in ["dura", "duracion", "anos", "año", "mes", "meses"]):
+    if any(
+        word in normalized_query
+        for word in [
+            "pais",
+            "paises",
+            "presencia",
+            "presentes",
+            "colombia",
+            "ecuador",
+            "chile",
+            "argentina",
+            "latinoamerica",
+        ]
+    ):
+        terms.append("presencia_regional")
+
+    if any(
+        word in normalized_query
+        for word in [
+            "dura",
+            "duracion",
+            "anos",
+            "año",
+            "mes",
+            "meses",
+        ]
+    ):
         terms.append("duracion")
 
-    if any(word in normalized_query for word in ["emprendimiento", "emprender", "emprendedor", "negocio", "idea"]):
+    if any(
+        word in normalized_query
+        for word in [
+            "emprendimiento",
+            "emprender",
+            "emprendedor",
+            "emprendedora",
+            "negocio",
+            "idea",
+            "proyecto",
+        ]
+    ):
         terms.append("emprendimiento")
 
-    if any(word in normalized_query for word in ["speaker", "speakers", "conferencista", "evento", "charla"]):
+    if "idea" in normalized_query and any(
+        word in normalized_query
+        for word in [
+            "emprendimiento",
+            "emprender",
+            "negocio",
+            "proyecto",
+        ]
+    ):
+        terms.append("idea_emprendimiento")
+
+    if any(
+        phrase in normalized_query
+        for phrase in [
+            "quiero emprender",
+            "quiero empezar",
+            "empezar a emprender",
+            "emprender desde cero",
+            "tengo una idea",
+            "idea de negocio",
+            "idea para un emprendimiento",
+            "llevarla a cabo",
+            "llevar a cabo una idea",
+        ]
+    ):
+        terms.append("idea_emprendimiento")
+
+    if any(
+        word in normalized_query
+        for word in [
+            "speaker",
+            "speakers",
+            "conferencista",
+            "conferencia",
+            "evento",
+            "charla",
+        ]
+    ):
         terms.append("speakers")
 
-    if any(word in normalized_query for word in ["liderazgo", "lideres", "lider", "colaboradores", "empresa"]):
+    if any(
+        word in normalized_query
+        for word in [
+            "liderazgo",
+            "lideres",
+            "lider",
+            "colaboradores",
+            "empresa",
+            "empresas",
+            "cultura",
+            "bienestar",
+        ]
+    ):
         terms.append("liderazgo")
 
-    if any(word in normalized_query for word in ["impacto", "personas", "familias", "empresas", "mentores"]):
+    if any(
+        word in normalized_query
+        for word in [
+            "impacto",
+            "personas",
+            "familias",
+            "mentores",
+            "resultados",
+            "acompanado",
+            "acompañando",
+            "acompañado",
+        ]
+    ):
         terms.append("impacto")
 
-    if any(word in normalized_query for word in ["contacto", "correo", "telefono", "comunicar", "ayudar", "colaborar"]):
+    if any(
+        word in normalized_query
+        for word in [
+            "contacto",
+            "correo",
+            "telefono",
+            "teléfono",
+            "comunicar",
+            "email",
+            "asesor",
+            "asesora",
+            "pagina",
+            "página",
+            "web",
+        ]
+    ):
         terms.append("contacto")
+
+    if any(
+        phrase in normalized_query
+        for phrase in [
+            "donar",
+            "donacion",
+            "donaciones",
+            "voluntario",
+            "voluntariado",
+            "aliado",
+            "aliados",
+            "alianza",
+            "alianzas",
+            "colaborar",
+            "apoyar a la organizacion",
+            "apoyar a la organización",
+            "apoyarlos",
+            "como puedo apoyarlos",
+            "como puedo ayudarles",
+            "como puedo colaborar",
+        ]
+    ):
         terms.append("colaboracion")
 
     return list(dict.fromkeys(terms))

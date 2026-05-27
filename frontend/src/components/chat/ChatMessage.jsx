@@ -1,4 +1,4 @@
-import { Bot, User } from "lucide-react";
+import { User } from "lucide-react";
 
 function ChatMessage({ message }) {
   const isUser = message.role === "user";
@@ -6,8 +6,8 @@ function ChatMessage({ message }) {
   return (
     <div className={`message-row ${isUser ? "user" : "assistant"}`}>
       {!isUser && (
-        <div className="message-icon">
-          <Bot size={18} />
+        <div className="message-icon bot-image-icon">
+          <img src="/Chatbot.svg" alt="Asistente" />
         </div>
       )}
 
