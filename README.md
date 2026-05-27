@@ -214,8 +214,6 @@ El asistente debe:
 - Usar solo la información recuperada.
 - No inventar datos.
 - Usar fallback si no hay contexto suficiente.
-- Recomendar **DESKUBRE** para ideas iniciales de emprendimiento.
-- Recomendar **ESTRUCTURA** para emprendimientos en marcha o ideas más avanzadas.
 - Orientar sobre Comparte Academia, Comparte Liderazgo y Comparte Talento.
 - Diferenciar entre usuarios que buscan ayuda para emprender y usuarios que quieren colaborar con la organización.
 
