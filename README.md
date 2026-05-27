@@ -1,100 +1,143 @@
-# Colombia Comparte RAG Chatbot
+# Latinoamérica Comparte RAG Chatbot
 
-Chatbot RAG para responder preguntas sobre Colombia Comparte con contexto real de los documentos del proyecto.
+Chatbot RAG para responder preguntas sobre Latinoamérica Comparte usando información real de los documentos del proyecto.
 
-Flujo principal:
+El sistema usa una arquitectura con **React + FastAPI + Groq + FAISS + Sentence Transformers**.
 
-```text
-Usuario -> Embedding -> FAISS/coseno -> Contexto -> Qwen2.5 -> Respuesta
-```
+---
 
-El objetivo es responder con naturalidad sin inventar información. Si el contexto recuperado no alcanza, el chatbot usa fallback:
+## Objetivo
+
+Responder preguntas sobre Latinoamérica Comparte, sus programas, líneas principales, impacto, historia y formas de colaboración.
+
+El chatbot debe responder con base en el contexto recuperado. Si no encuentra información suficiente, responde:
 
 ```text
 No tengo suficiente información para responder esa pregunta con los datos disponibles.
 ```
 
-## Enfoque
+---
 
-El chunking no corta por caracteres. La estrategia es:
-
-1. Leer documentos desde `data/raw`.
-2. Limpiar espacios sin perder los saltos entre parrafos.
-3. Quitar ruido editorial de documentos de trabajo, como instrucciones de diseno, CTAs internos, notas pendientes y texto de revision.
-4. Detectar fronteras semanticas como secciones, slides, rutas, programas y titulos numerados.
-5. Agrupar parrafos completos hasta llegar a un tamano objetivo, respetando esas fronteras.
-6. Si un parrafo extraido de PDF es demasiado largo, dividirlo primero por estructura interna y luego por oraciones.
-7. Agregar una oracion de solapamiento solo cuando el corte no sea cambio de tema.
-8. Fusionar chunks demasiado cortos o que terminen en una idea abierta.
-9. Validar cada chunk para detectar finales raros, ideas cortadas o tamanos fuera de rango.
-10. Generar embeddings con un modelo pequeno de Hugging Face.
-11. Guardar `chunks.jsonl`, `embeddings.npy` y un indice FAISS.
-
-Modelo recomendado para embeddings:
+## Flujo general
 
 ```text
-sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Usuario
+  -> Frontend React
+  -> Backend FastAPI
+  -> Retriever híbrido
+  -> FAISS + embeddings
+  -> Contexto recuperado
+  -> Groq
+  -> Respuesta
 ```
 
-Modelo de generación recomendado por el reto:
+---
+
+## Tecnologías
+
+**Backend**
+
+- Python
+- FastAPI
+- Uvicorn
+- FAISS
+- Sentence Transformers
+- Groq API
+- Pydantic
+- dotenv
+
+**Frontend**
+
+- React
+- Vite
+- CSS
+- Lucide React
+
+---
+
+## Estructura principal
 
 ```text
-Qwen/Qwen2.5-0.5B-Instruct
+backend/
+  app.py
+
+data/
+  raw/
+  processed/
+
+frontend/
+  public/
+  src/
+    components/
+    hooks/
+    styles/
+    utils/
+
+indexes/
+  faiss.index
+
+scripts/
+  build_knowledge_base.py
+  chatbot_groq.py
+  search_semantic.py
+
+src/rag/
+  embeddings.py
+  groq_generator.py
+  hybrid_retriever.py
+  pipeline_groq.py
+  prompt_builder.py
+  retriever.py
+  vector_store.py
 ```
 
-## Estructura
+---
 
-```text
-data/raw/                 documentos originales
-data/processed/           chunks y embeddings generados
-indexes/                  indice FAISS
-scripts/build_knowledge_base.py
-scripts/search_semantic.py
-scripts/chatbot.py
-streamlit_app.py
-src/rag/                  modulos reutilizables
-```
+## Instalación backend
 
-## Instalacion
+Desde la raíz del proyecto:
 
 ```bash
 python -m venv .venv
+```
+
+En Windows:
+
+```bash
 .venv\Scripts\activate
+```
+
+Instalar dependencias:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Preparar documentos
+---
 
-Coloca los archivos de Colombia Comparte en:
+## Variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+GROQ_API_KEY=tu_api_key_de_groq
+GROQ_MODEL=llama-3.1-8b-instant
+```
+
+---
+
+## Construir la base de conocimiento
+
+Los documentos fuente van en:
 
 ```text
 data/raw/
 ```
 
-Formatos soportados: `.txt`, `.md`, `.docx`, `.pdf`.
-
-## Construir la base de conocimiento
+Generar chunks, embeddings e índice FAISS:
 
 ```bash
 python scripts/build_knowledge_base.py
-```
-
-Parametros utiles:
-
-```bash
-python scripts/build_knowledge_base.py --min-words 35 --target-words 140 --max-words 240
-```
-
-Para revisar solo la calidad de los chunks sin regenerar embeddings:
-
-```bash
-python scripts/build_knowledge_base.py --skip-embeddings
-```
-
-Si el modelo de embeddings no esta en cache local, permite la descarga con:
-
-```bash
-python scripts/build_knowledge_base.py --download-model
 ```
 
 Archivos generados:
@@ -105,74 +148,100 @@ data/processed/embeddings.npy
 indexes/faiss.index
 ```
 
-## Probar busqueda semantica
+---
+
+## Probar retrieval
 
 ```bash
-python scripts/search_semantic.py "Que hace Colombia Comparte?"
+python scripts/search_semantic.py "Qué es DESKUBRE?"
 ```
 
-El script muestra los chunks completos mas similares junto con su score. Si quieres una salida corta para inspeccion rapida, usa `--preview-chars 450`.
+---
 
-## Probar chatbot con Qwen
+## Probar chatbot por consola
 
 ```bash
-python scripts/chatbot.py "Que es EDIFICA?"
+python scripts/chatbot_groq.py "Qué es Latinoamérica Comparte?"
 ```
 
-Opciones utiles:
+Con contexto recuperado:
 
 ```bash
-python scripts/chatbot.py "Que es EDIFICA?" --show-context
-python scripts/chatbot.py "Que es EDIFICA?" --no-generate
-python scripts/chatbot.py "Que es EDIFICA?" --top-k 4 --min-score 0.25
+python scripts/chatbot_groq.py "Qué es ESTRUCTURA?" --show-context
 ```
 
-`--no-generate` sirve para probar solo retrieval sin cargar Qwen.
-Si Qwen o el modelo de embeddings no estan en cache local, usa `--download-models`.
+---
 
-## Interfaz grafica
+## Ejecutar backend
 
-La interfaz grafica esta hecha con Streamlit como una landing sencilla con chat integrado:
+Desde la raíz:
 
 ```bash
-streamlit run streamlit_app.py
+uvicorn backend.app:app --reload
 ```
 
-Abre:
+Backend disponible en:
 
 ```text
-http://localhost:8501
+http://localhost:8000
 ```
 
-La experiencia visual oculta la configuracion tecnica para que el usuario vea una pagina sencilla:
+---
 
-```text
-Landing de Colombia Comparte
-Boton para abrir el chat
-Preguntas sugeridas
-Panel conversacional
-Respuestas generadas con RAG + Qwen
-```
+## Ejecutar frontend
 
-La app carga `data/processed/chunks.jsonl` e `indexes/faiss.index`. Si esos archivos no existen, ejecuta primero:
+En otra terminal:
 
 ```bash
-python scripts/build_knowledge_base.py
+cd frontend
+npm install
+npm run dev
 ```
 
-## Validacion de chunks
+Frontend disponible en:
 
-Cada registro en `chunks.jsonl` incluye:
-
-```json
-{
-  "id": "chunk-0001",
-  "text": "...",
-  "source": "data/raw/documento.docx",
-  "word_count": 320,
-  "validation_status": "ok",
-  "validation_notes": []
-}
+```text
+http://localhost:5173
 ```
 
-Si `validation_status` queda en `review`, el chunk no se descarta: queda marcado para revision porque puede estar muy corto, muy largo o terminar con una idea aparentemente incompleta.
+---
+
+## Comportamiento esperado
+
+El asistente debe:
+
+- Responder en español.
+- Usar solo la información recuperada.
+- No inventar datos.
+- Usar fallback si no hay contexto suficiente.
+- Recomendar **DESKUBRE** para ideas iniciales de emprendimiento.
+- Recomendar **ESTRUCTURA** para emprendimientos en marcha o ideas más avanzadas.
+- Orientar sobre Comparte Academia, Comparte Liderazgo y Comparte Talento.
+- Diferenciar entre usuarios que buscan ayuda para emprender y usuarios que quieren colaborar con la organización.
+
+---
+
+## Ejemplos de preguntas
+
+```text
+¿Qué es Latinoamérica Comparte?
+¿En qué países están?
+Tengo una idea para un emprendimiento, ¿me pueden ayudar?
+¿Qué es DESKUBRE?
+Ya tengo un emprendimiento, pero está desordenado. ¿Qué me sirve?
+Necesito un conferencista para una charla en mi empresa.
+¿Cómo puedo colaborar con ustedes?
+¿A cuántas personas han acompañado?
+```
+
+---
+
+## Estado actual
+
+El proyecto funciona con:
+
+```text
+React + FastAPI + Groq + FAISS + Sentence Transformers
+```
+
+La versión anterior basada en Streamlit y Qwen fue retirada para mantener una arquitectura más clara y moderna.
